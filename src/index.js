@@ -4,7 +4,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
+import Main from './components/Main';
+
 ReactDOM.render(
-  <p>The App</p>,
+  <Main />,
   document.querySelector('#root'),
 );
