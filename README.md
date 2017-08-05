@@ -12,3 +12,12 @@
 - eject after create-react-app for boilerplate app
 - add e2e testing
 - add redux
+
+## - running app
+`yarn start` to run app in development mode - hot reload
+`yarn build` to build app for deployment, output to build folder
+
+## - further development
+- player chooses grade and is given appropriate word
+- keep track of hard words and use approach like Anki flashcards - active recall testing and spaced repetition, https://apps.ankiweb.net/docs/manual.html#introduction
+- teacher or player can select particular word bank from grade to cover only what is being taught in class that week
