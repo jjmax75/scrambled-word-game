@@ -16,7 +16,9 @@ class Main extends React.Component {
   }
 
   pickRandomWord() {
-    return this.props.words[Math.floor(Math.random() * this.props.words.length)];
+    const length = this.props.words.length;
+    const idx = Math.floor(Math.random() * (length - 1));
+    return this.props.words[idx];
   }
 
   render() {
