@@ -15,8 +15,8 @@ A game to help students learn vocabulary and spelling
 - add redux
 
 ## Running app
-`yarn start` to run app in development mode - hot reload
-`yarn build` to build app for deployment, output to build folder
+- `yarn start` to run app in development mode - live reload
+- `yarn build` to build app for deployment, output to build folder
 
 ## Further development
 - player chooses grade and is given appropriate word
