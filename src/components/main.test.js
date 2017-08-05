@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { shallow } from 'enzyme';
-import Main from './Main';
+import Main from './main';
 
 it('Main renders without crashing', () => {
   const component = shallow(<Main />);
