@@ -6,20 +6,23 @@ import './answer.scss';
 // Components
 import Card from './../card/';
 
-const getCards = (word, answer, checkAnswer) => {
+const getCards = (props) => {
   const getClassName = i => (
-    word[i] === answer[i] ? 'correct' : 'incorrect'
+    props.word[i] === props.answer[i] ? 'correct' : 'incorrect'
   );
 
   const answerCards = [];
-  for (let i = 0; i < word.length; i += 1) {
-    const letter = answer[i] || '?';
+  for (let i = 0; i < props.word.length; i += 1) {
+    const letter = props.answer[i] || '?';
     answerCards.push(
       <Card
         letter={letter}
         key={shortid.generate()}
-        modifier={checkAnswer ? getClassName(i) : null}
+        cardIndex={i}
+        modifier={props.checkAnswer ? getClassName(i) : null}
         block='answer'
+        draggable
+        swapCards={props.swapCards}
       />,
     );
   }
@@ -29,10 +32,8 @@ const getCards = (word, answer, checkAnswer) => {
 const Answer = props => (
   <div
     className='answer'
-    onDragOver={event => event.preventDefault()}
-    onDrop={event => props.checkLetter(event.dataTransfer.getData('text/plain'))}
   >
-    { getCards(props.word, props.answer, props.checkAnswer) }
+    { getCards(props) }
   </div>
 );
 
@@ -42,7 +43,7 @@ Answer.propTypes = {
     PropTypes.string,
   ).isRequired,
   checkAnswer: PropTypes.bool.isRequired,
-  checkLetter: PropTypes.func.isRequired,
+  swapCards: PropTypes.func.isRequired,
 };
 
 export default Answer;

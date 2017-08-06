@@ -10,7 +10,6 @@ const getCards = wordArr => wordArr.map(letter => (
   <Card
     key={shortid.generate()}
     letter={letter}
-    draggable
     block='cards'
   />
 ));

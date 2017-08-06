@@ -30,3 +30,6 @@ shrewd, shrift, shrike, shrunk, thrill, three, thrash, threat, throng, throve, t
 - game - timed, multiplayer, etc...
 - ordering of letters to positions they are dragged to rather than next available space
 - improve UI/UX
+
+## Additional info
+Initially built this with the functionality to drag letters up to the answer area. Refactored after thinking more about requirement 5, Game now lets user move crads in the answer area.

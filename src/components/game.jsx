@@ -23,7 +23,7 @@ class Game extends React.Component {
   constructor(props) {
     super(props);
 
-    this.checkLetter = this.checkLetter.bind(this);
+    this.swapCards = this.swapCards.bind(this);
 
     this.state = {
       scrambledWord: [],
@@ -41,6 +41,18 @@ class Game extends React.Component {
         availableLetters: scrambledWord,
         answer: [],
         checkAnswer: false,
+      });
+    }
+  }
+
+  swapCards(cardIdx, positionIdx) {
+    if (this.state.answer.length > 0) {
+      const letter = this.state.answer[cardIdx];
+      const newAnswerState = this.state.answer.slice();
+      newAnswerState.splice(cardIdx, 1);
+      newAnswerState.splice(positionIdx, 0, letter);
+      this.setState({
+        answer: newAnswerState,
       });
     }
   }
@@ -131,7 +143,7 @@ class Game extends React.Component {
               word={this.props.word}
               answer={this.state.answer}
               checkAnswer={this.state.checkAnswer}
-              checkLetter={this.checkLetter}
+              swapCards={this.swapCards}
             />
             <Cards
               word={this.state.availableLetters}
@@ -140,7 +152,9 @@ class Game extends React.Component {
               <GetNewWord clickHandler={this.props.setActiveWord} />
               :
               <div className='game__instructions'>
-                <p>Type or drag the letters to spell the word</p>
+                <p>Type the letters to spell the word</p>
+                <p>You can drag a letter to rearrange it</p>
+                <p>Press Backspace if you make a mistake</p>
                 <p>Press Enter to check your answer</p>
               </div>
             }
