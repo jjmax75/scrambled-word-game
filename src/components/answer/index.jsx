@@ -6,13 +6,20 @@ import './answer.scss';
 // Components
 import Card from './../card/';
 
-const getCards = (length, answer) => {
+const getCards = (word, answer, checkAnswer) => {
+  const getClassName = i => (
+    word[i] === answer[i] ? 'correct' : 'incorrect'
+  );
+
   const answerCards = [];
-  for (let i = 0; i < length; i += 1) {
+  for (let i = 0; i < word.length; i += 1) {
+    const letter = answer[i] || '?';
     answerCards.push(
       <Card
-        letter={answer[i] || '?'}
+        letter={letter}
         key={shortid.generate()}
+        modifier={checkAnswer ? getClassName(i) : null}
+        block='answer'
       />,
     );
   }
@@ -21,15 +28,16 @@ const getCards = (length, answer) => {
 
 const Answer = props => (
   <div className='answer'>
-    { getCards(props.length, props.answer) }
+    { getCards(props.word, props.answer, props.checkAnswer) }
   </div>
 );
 
 Answer.propTypes = {
-  length: PropTypes.number.isRequired,
+  word: PropTypes.string.isRequired,
   answer: PropTypes.arrayOf(
     PropTypes.string,
   ).isRequired,
+  checkAnswer: PropTypes.bool.isRequired,
 };
 
 export default Answer;

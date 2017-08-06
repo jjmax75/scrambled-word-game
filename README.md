@@ -14,6 +14,10 @@ A game to help students learn vocabulary and spelling
 - add e2e testing
 - add redux
 
+## Word bank
+this demo uses the flollowing words which are Grade 5 level
+shrewd, shrift, shrike, shrunk, thrill, three, thrash, threat, throng, throve, thrust, throat
+
 ## Running app
 - `yarn start` to run app in development mode - live reload
 - `yarn build` to build app for deployment, output to build folder

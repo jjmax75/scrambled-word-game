@@ -6,8 +6,14 @@ import './cards.scss';
 // Componets
 import Card from './../card/';
 
-const getCards = wordArr => wordArr.map(
-  letter => <Card key={shortid.generate()} letter={letter} draggable />);
+const getCards = wordArr => wordArr.map(letter => (
+  <Card
+    key={shortid.generate()}
+    letter={letter}
+    draggable
+    block='cards'
+  />
+));
 
 const Cards = props => (
   <div className='cards'>

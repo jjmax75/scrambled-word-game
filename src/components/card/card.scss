@@ -1,4 +1,4 @@
-.card {
+%card {
   background-color: #fff;
   width: 10vw;
   height: 15vh;
@@ -6,4 +6,21 @@
   align-items: center;
   justify-content: center;
   color: #111;
+}
+
+%card--correct {
+  @extend %card;
+  background-color: #73B66B;
+  color: #fff;
+}
+
+%card--incorrect {
+  @extend %card;
+  background-color: #EF597B;
+  color: #fff;
+}
+
+.card {
+  @extend %card;
+  cursor: pointer;
 }

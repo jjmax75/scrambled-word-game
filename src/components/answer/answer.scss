@@ -1,7 +1,22 @@
+@import './../card/card.scss';
+
 .answer {
   background-color: green;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   margin-bottom: 20px;
+}
+
+.answer__card {
+  @extend %card;
+  cursor: pointer;
+}
+
+.answer__card--correct {
+  @extend %card--correct;
+}
+
+.answer__card--incorrect {
+  @extend %card--incorrect;
 }

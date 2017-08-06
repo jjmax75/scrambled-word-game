@@ -26,6 +26,7 @@ class Game extends React.Component {
       scrambledWord: [],
       answer: [],
       availableLetters: [],
+      checkAnswer: false,
     };
   }
 
@@ -35,6 +36,8 @@ class Game extends React.Component {
       this.setState({
         scrambledWord,
         availableLetters: scrambledWord,
+        answer: [],
+        checkAnswer: false,
       });
     }
   }
@@ -45,6 +48,9 @@ class Game extends React.Component {
         const result = this.state.answer.join('') === this.props.word ?
           'Well done!' : 'Not correct';
         console.log('Result:', result);
+        this.setState({
+          checkAnswer: true,
+        });
       } else {
         console.log('you haven\'t used all the letters yet');
       }
@@ -104,12 +110,19 @@ class Game extends React.Component {
             tabIndex='0'
           >
             <Answer
-              length={this.props.word.length}
+              word={this.props.word}
               answer={this.state.answer}
+              checkAnswer={this.state.checkAnswer}
             />
             <Cards word={this.state.availableLetters} />
-            <p>Type or drag the letters to spell the word</p>
-            <p>Press Enter to check your answer</p>
+            { this.state.checkAnswer ?
+              <GetNewWord clickHandler={this.props.setActiveWord} />
+              :
+              <div className='game__instructions'>
+                <p>Type or drag the letters to spell the word</p>
+                <p>Press Enter to check your answer</p>
+              </div>
+            }
           </div>
           :
           <GetNewWord clickHandler={this.props.setActiveWord} />

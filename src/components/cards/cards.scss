@@ -1,5 +1,11 @@
+@import './../card/card.scss';
+
 .cards {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+}
+
+.cards__card {
+  @extend %card;
 }
