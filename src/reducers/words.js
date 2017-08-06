@@ -5,6 +5,12 @@ export default (state = '', action) => {
     case types.SET_INITIAL_DATA:
       return action.data;
 
+    case types.SET_ACTIVE_WORD:
+      return {
+        ...state,
+        activeWord: action.word,
+      };
+
     default:
       return state;
   }

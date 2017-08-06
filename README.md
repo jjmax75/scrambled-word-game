@@ -22,3 +22,5 @@ A game to help students learn vocabulary and spelling
 - player chooses grade and is given appropriate word
 - keep track of hard words and use approach like Anki flashcards - active recall testing and spaced repetition, https://apps.ankiweb.net/docs/manual.html#introduction
 - teacher or player can select particular word bank from grade to cover only what is being taught in class that week
+- score
+- game - timed, multiplayer, etc...

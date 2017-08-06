@@ -2,9 +2,9 @@
 
 import React from 'react';
 import { shallow } from 'enzyme';
-import Letter from './';
+import Game from './game';
 
-it('Letter component renders without crashing', () => {
-  const component = shallow(<Letter />);
+it('Main renders without crashing', () => {
+  const component = shallow(<Game />);
   expect(component.exists()).toEqual(true);
 });

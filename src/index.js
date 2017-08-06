@@ -6,7 +6,7 @@ import { Provider } from 'react-redux';
 import './index.scss';
 
 // Components
-import MainContainer from './containers/mainContainer';
+import GameContainer from './containers/gameContainer';
 
 // Data
 import wordBank from './json/words.json';
@@ -17,7 +17,7 @@ store.dispatch(actions.setInitialData(wordBank));
 
 ReactDOM.render(
   <Provider store={store}>
-    <MainContainer />
+    <GameContainer />
   </Provider>,
   document.querySelector('#root'),
 );

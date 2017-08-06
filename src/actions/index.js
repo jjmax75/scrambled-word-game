@@ -7,6 +7,12 @@ const actions = {
       data,
     };
   },
+  setActiveWord(word) {
+    return {
+      type: types.SET_ACTIVE_WORD,
+      word,
+    };
+  },
 };
 
 export default actions;
