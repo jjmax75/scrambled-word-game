@@ -6,12 +6,17 @@ import './cards.scss';
 // Componets
 import Card from './../card/';
 
+const handleDrop = () => {
+  console.log('dropped');
+};
+
 const getCards = wordArr => wordArr.map(letter => (
   <Card
     key={shortid.generate()}
     letter={letter}
     draggable
     block='cards'
+    handleDrop={event => handleDrop(event)}
   />
 ));
 

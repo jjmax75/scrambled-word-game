@@ -27,7 +27,11 @@ const getCards = (word, answer, checkAnswer) => {
 };
 
 const Answer = props => (
-  <div className='answer'>
+  <div
+    className='answer'
+    onDragOver={event => event.preventDefault()}
+    onDrop={event => props.checkLetter(event.dataTransfer.getData('text/plain'))}
+  >
     { getCards(props.word, props.answer, props.checkAnswer) }
   </div>
 );
@@ -38,6 +42,7 @@ Answer.propTypes = {
     PropTypes.string,
   ).isRequired,
   checkAnswer: PropTypes.bool.isRequired,
+  checkLetter: PropTypes.func.isRequired,
 };
 
 export default Answer;

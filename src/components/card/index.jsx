@@ -13,6 +13,7 @@ const Card = (props) => {
     <div
       className={getClassname()}
       draggable={props.draggable}
+      onDragStart={event => event.dataTransfer.setData('text/plain', props.letter)}
     >
       {props.letter}
     </div>
@@ -24,11 +25,13 @@ Card.propTypes = {
   draggable: PropTypes.bool,
   modifier: PropTypes.string,
   block: PropTypes.string.isRequired,
+  // handleDrop: PropTypes.func,
 };
 
 Card.defaultProps = {
   draggable: false,
   modifier: undefined,
+  // handleDrop: undefined,
 };
 
 export default Card;

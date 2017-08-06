@@ -23,6 +23,8 @@ class Game extends React.Component {
   constructor(props) {
     super(props);
 
+    this.checkLetter = this.checkLetter.bind(this);
+
     this.state = {
       scrambledWord: [],
       answer: [],
@@ -43,7 +45,7 @@ class Game extends React.Component {
     }
   }
 
-  handleKeyDown(key) {
+  checkLetter(key) {
     const checkAnswer = () => {
       if (this.state.answer.length === this.props.word.length) {
         const result = this.state.answer.join('') === this.props.word ?
@@ -104,6 +106,10 @@ class Game extends React.Component {
     }
   }
 
+  // handleDrop(event) {
+  //   console.log(this.state.message, event);
+  // }
+
   hideMessage(delay) {
     setTimeout(() => {
       this.setState({
@@ -120,7 +126,7 @@ class Game extends React.Component {
           <div
             className='game__area'
             onKeyDown={
-              event => this.handleKeyDown(event.key)
+              event => this.checkLetter(event.key)
             }
             role='button'
             tabIndex='0'
@@ -129,8 +135,11 @@ class Game extends React.Component {
               word={this.props.word}
               answer={this.state.answer}
               checkAnswer={this.state.checkAnswer}
+              checkLetter={this.checkLetter}
             />
-            <Cards word={this.state.availableLetters} />
+            <Cards
+              word={this.state.availableLetters}
+            />
             { this.state.checkAnswer ?
               <GetNewWord clickHandler={this.props.setActiveWord} />
               :
