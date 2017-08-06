@@ -1,3 +1,5 @@
+/* global document */
+
 import React from 'react';
 import PropTypes from 'prop-types';
 import './game.scss';
@@ -33,6 +35,10 @@ class Game extends React.Component {
     };
   }
 
+  componentDidMount() {
+    document.addEventListener('keydown', event => this.checkLetter(event.key));
+  }
+
   componentWillReceiveProps(nextProps) {
     if (nextProps.word !== this.props.word) {
       const scrambledWord = this.constructor.scrambleWord(nextProps.word);
@@ -43,6 +49,10 @@ class Game extends React.Component {
         checkAnswer: false,
       });
     }
+  }
+
+  componentWillUnmont() {
+    document.removeEventListener('keydown', this.checkLetter);
   }
 
   swapCards(cardIdx, positionIdx) {
@@ -128,16 +138,7 @@ class Game extends React.Component {
 
   render() {
     return (
-      <div
-        className='game'
-        onKeyDown={
-          event => this.checkLetter(event.key)
-        }
-        role='button'
-        tabIndex='0'
-        // eslint-disable-next-line jsx-a11y/no-autofocus
-        autoFocus
-      >
+      <div className='game'>
         <h1>Scrambled word game</h1>
         { this.props.word ?
           <div
