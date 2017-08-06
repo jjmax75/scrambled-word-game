@@ -10,6 +10,9 @@
   font-size: 1.25em;
   padding: 20px;
   position: relative;
+  height: 100vh;
+  width: 100vw;
+  box-sizing: border-box;
 }
 
 h1 {
@@ -120,4 +123,4 @@ h1 {
 }
 
 
-/*# sourceMappingURL=main.7929afbc.css.map*/
+/*# sourceMappingURL=main.7d04868c.css.map*/
