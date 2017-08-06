@@ -4,7 +4,7 @@ import './getNewWord.scss';
 
 const GetNewWord = props => (
   <button
-    className='getNewWord'
+    className='get-new-word'
     onClick={props.clickHandler}
   >
     Get New Word

@@ -28,3 +28,4 @@ shrewd, shrift, shrike, shrunk, thrill, three, thrash, threat, throng, throve, t
 - teacher or player can select particular word bank from grade to cover only what is being taught in class that week
 - score
 - game - timed, multiplayer, etc...
+- ordering of letters to positions they are dragged to rather than next available space

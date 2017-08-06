@@ -6,6 +6,7 @@ import './game.scss';
 import GetNewWord from './getNewWord/';
 import Cards from './cards/';
 import Answer from './answer/';
+import Message from './message/';
 
 class Game extends React.Component {
   static scrambleWord(word) {
@@ -46,13 +47,17 @@ class Game extends React.Component {
     const checkAnswer = () => {
       if (this.state.answer.length === this.props.word.length) {
         const result = this.state.answer.join('') === this.props.word ?
-          'Well done!' : 'Not correct';
-        console.log('Result:', result);
+          'Well done! Have another go :)' : 'Good effort, try again!';
         this.setState({
+          message: result,
           checkAnswer: true,
         });
+        this.hideMessage(1000);
       } else {
-        console.log('you haven\'t used all the letters yet');
+        this.setState({
+          message: 'There are still some letters remaining',
+        });
+        this.hideMessage(500);
       }
     };
 
@@ -80,7 +85,10 @@ class Game extends React.Component {
           ],
         });
       } else {
-        console.log('not in available letters');
+        this.setState({
+          message: 'That letter is not available',
+        });
+        this.hideMessage(500);
       }
     };
 
@@ -94,6 +102,14 @@ class Game extends React.Component {
       default:
         addLetter(key);
     }
+  }
+
+  hideMessage(delay) {
+    setTimeout(() => {
+      this.setState({
+        message: undefined,
+      });
+    }, delay);
   }
 
   render() {
@@ -126,6 +142,9 @@ class Game extends React.Component {
           </div>
           :
           <GetNewWord clickHandler={this.props.setActiveWord} />
+        }
+        { this.state.message ?
+          <Message text={this.state.message} /> : null
         }
       </div>
     );
