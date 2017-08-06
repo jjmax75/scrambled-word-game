@@ -106,10 +106,6 @@ class Game extends React.Component {
     }
   }
 
-  // handleDrop(event) {
-  //   console.log(this.state.message, event);
-  // }
-
   hideMessage(delay) {
     setTimeout(() => {
       this.setState({

@@ -3,6 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "predeploy": "yarn build",
+    "deploy": "gh-pages -d build",
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
     "unit-tests": "node scripts/test.js --env=jsdom",
@@ -51,6 +53,7 @@
     "extends": "react-app"
   },
   "dependencies": {
+    "gh-pages": "1.0.0",
     "react": "15.6.1",
     "react-dom": "15.6.1"
   },
@@ -107,5 +110,6 @@
     "webpack-dev-server": "2.5.0",
     "webpack-manifest-plugin": "1.1.0",
     "whatwg-fetch": "2.0.3"
-  }
+  },
+  "homepage": "https://jjmax75.github.io/scrambled-word-game"
 }

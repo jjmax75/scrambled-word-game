@@ -29,3 +29,4 @@ shrewd, shrift, shrike, shrunk, thrill, three, thrash, threat, throng, throve, t
 - score
 - game - timed, multiplayer, etc...
 - ordering of letters to positions they are dragged to rather than next available space
+- improve UI/UX
