@@ -128,16 +128,20 @@ class Game extends React.Component {
 
   render() {
     return (
-      <div className='game'>
+      <div
+        className='game'
+        onKeyDown={
+          event => this.checkLetter(event.key)
+        }
+        role='button'
+        tabIndex='0'
+        // eslint-disable-next-line jsx-a11y/no-autofocus
+        autoFocus
+      >
         <h1>Scrambled word game</h1>
         { this.props.word ?
           <div
             className='game__area'
-            onKeyDown={
-              event => this.checkLetter(event.key)
-            }
-            role='button'
-            tabIndex='0'
           >
             <Answer
               word={this.props.word}
