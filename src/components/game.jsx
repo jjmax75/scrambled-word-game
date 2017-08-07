@@ -47,7 +47,9 @@ class Game extends React.Component {
         availableLetters: scrambledWord,
         answer: [],
         checkAnswer: false,
+        message: `${nextProps.word}`,
       });
+      this.hideMessage(3000);
     }
   }
 
